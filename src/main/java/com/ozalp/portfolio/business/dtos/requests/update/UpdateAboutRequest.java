@@ -15,4 +15,6 @@ public class UpdateAboutRequest {
 
     private List<String> skills;
 
+    private String title;
+
 }

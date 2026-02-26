@@ -22,6 +22,9 @@ public class About extends BaseEntity {
     private String description;
 
     @Column
+    private String title;
+
+    @Column
     private String profileImageUrl;
 
     @Column

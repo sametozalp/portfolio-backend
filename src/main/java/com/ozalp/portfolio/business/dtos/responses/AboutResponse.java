@@ -15,4 +15,7 @@ public class AboutResponse {
 
     private List<String> skills;
 
+    private String title;
+
+
 }

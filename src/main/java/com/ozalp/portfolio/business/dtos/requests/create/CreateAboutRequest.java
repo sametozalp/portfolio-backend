@@ -15,5 +15,6 @@ public class CreateAboutRequest {
 
     private List<String> skills;
 
+    private String title;
 
 }
