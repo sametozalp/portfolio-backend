@@ -49,7 +49,4 @@ public class Project extends BaseEntity {
     @Column
     private String sourceCodeUrl;
 
-    @Column
-    private List<Integer> categories;
-
 }
