@@ -27,4 +27,7 @@ public class CreateProjectRequest {
 
     private String sourceCodeUrl;
 
+    private String coverImage;
+
+
 }

@@ -27,4 +27,7 @@ public class ProjectResponse {
 
     private String sourceCodeUrl;
 
+    private String coverImage;
+
+
 }

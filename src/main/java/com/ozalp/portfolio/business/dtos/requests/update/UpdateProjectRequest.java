@@ -27,4 +27,7 @@ public class UpdateProjectRequest {
 
     private String sourceCodeUrl;
 
+    private String coverImage;
+
+
 }

@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Setter
 public class CreateExperienceRequest {
 
-    private String title;
+    private String positionName;
 
     private String description;
 
