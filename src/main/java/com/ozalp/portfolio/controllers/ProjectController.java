@@ -27,4 +27,10 @@ public class ProjectController {
         projectService.update(id, request);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
+
+    @GetMapping
+    ResponseEntity<?> get() {
+        return ResponseEntity.ok(projectService.getProjects());
+    }
 }

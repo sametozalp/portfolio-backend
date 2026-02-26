@@ -34,4 +34,9 @@ public class ContactController {
         contactService.update(id, request);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
+    @GetMapping
+    ResponseEntity<?> get() {
+        return ResponseEntity.ok(contactService.getContact());
+    }
 }

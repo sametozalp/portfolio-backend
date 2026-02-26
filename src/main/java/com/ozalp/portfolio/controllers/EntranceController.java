@@ -27,4 +27,9 @@ public class EntranceController {
         entranceService.update(id, request);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
+    @GetMapping
+    ResponseEntity<?> get() {
+        return ResponseEntity.ok(entranceService.getEntrance());
+    }
 }

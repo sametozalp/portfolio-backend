@@ -27,4 +27,9 @@ public class AboutController {
         aboutService.update(id, request);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
+    @GetMapping
+    ResponseEntity<?> get() {
+        return ResponseEntity.ok(aboutService.getAbout());
+    }
 }
