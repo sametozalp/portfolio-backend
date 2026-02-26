@@ -16,7 +16,7 @@ public class EducationController {
 
     private final EducationService educationService;
 
-    @PostMapping("/add")
+    @PostMapping
     ResponseEntity<?> add(@RequestBody @Valid CreateEducationRequest request) {
         educationService.add(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();

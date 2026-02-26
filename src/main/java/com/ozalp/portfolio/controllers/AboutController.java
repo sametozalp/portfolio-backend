@@ -16,7 +16,7 @@ public class AboutController {
 
     private final AboutService aboutService;
 
-    @PostMapping("/add")
+    @PostMapping
     ResponseEntity<?> add(@RequestBody @Valid CreateAboutRequest request) {
         aboutService.add(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();

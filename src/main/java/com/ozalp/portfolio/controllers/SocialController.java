@@ -16,7 +16,7 @@ public class SocialController {
 
     private final SocialService socialService;
 
-    @PostMapping("/add")
+    @PostMapping
     ResponseEntity<?> add(@RequestBody @Valid CreateSocialRequest request) {
         socialService.add(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();

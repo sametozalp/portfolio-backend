@@ -16,7 +16,7 @@ public class ExperienceController {
 
     private final ExperienceService experienceService;
 
-    @PostMapping("/add")
+    @PostMapping
     ResponseEntity<?> add(@RequestBody @Valid CreateExperienceRequest request) {
         experienceService.add(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();

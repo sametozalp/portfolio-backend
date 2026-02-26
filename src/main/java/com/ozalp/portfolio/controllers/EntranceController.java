@@ -16,7 +16,7 @@ public class EntranceController {
 
     private final EntranceService entranceService;
 
-    @PostMapping("/add")
+    @PostMapping
     ResponseEntity<?> add(@RequestBody @Valid CreateEntranceRequest request) {
         entranceService.add(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();

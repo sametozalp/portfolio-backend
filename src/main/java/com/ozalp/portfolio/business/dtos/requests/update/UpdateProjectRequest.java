@@ -17,7 +17,7 @@ public class UpdateProjectRequest {
 
     private List<String> features;
 
-    private List<String> images;
+//    private List<String> images;
 
     private LocalDate projectDate;
 

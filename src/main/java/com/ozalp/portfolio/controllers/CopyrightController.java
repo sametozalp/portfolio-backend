@@ -16,7 +16,7 @@ public class CopyrightController {
 
     private final CopyrightService copyrightService;
 
-    @PostMapping("/add")
+    @PostMapping
     ResponseEntity<?> add(@RequestBody @Valid CreateCopyrightRequest request) {
         copyrightService.add(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();

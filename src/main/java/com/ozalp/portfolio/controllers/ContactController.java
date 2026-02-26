@@ -17,7 +17,7 @@ public class ContactController {
 
     private final ContactService contactService;
 
-    @PostMapping("/add")
+    @PostMapping
     ResponseEntity<?> add(@RequestBody @Valid CreateContactRequest request) {
         contactService.add(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();

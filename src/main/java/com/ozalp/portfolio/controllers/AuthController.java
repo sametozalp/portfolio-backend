@@ -15,7 +15,7 @@ public class AuthController {
 
     private final AuthService authService;
 
-    @PostMapping("/add")
+    @PostMapping
     ResponseEntity<?> add(@RequestBody @Valid CreateAuthRequest request) {
         authService.add(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();
