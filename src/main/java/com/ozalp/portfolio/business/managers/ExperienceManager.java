@@ -48,7 +48,7 @@ public class ExperienceManager implements ExperienceService {
 
     @Override
     public List<ExperienceResponse> getExperience() {
-        return repository.findAllByDeletedAtIsNullAndShowableIsTrue()
+        return repository.findAll()
                 .stream()
                 .map(mapper::toResponse)
                 .toList();

@@ -10,7 +10,6 @@ import com.ozalp.portfolio.dataAccess.AboutRepository;
 import com.ozalp.portfolio.entities.About;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,7 +21,7 @@ public class AboutManager implements AboutService {
 
     @Override
     public void add(CreateAboutRequest createAboutRequest) {
-        if (!repository.findAllByDeletedAtIsNullAndShowableIsTrue().isEmpty()) {
+        if (!repository.findAll().isEmpty()) {
             throw new DataAlreadyExist();
         }
 
@@ -51,11 +50,11 @@ public class AboutManager implements AboutService {
 
     @Override
     public AboutResponse getAbout() {
-        return repository.findAllByDeletedAtIsNullAndShowableIsTrue(PageRequest.of(0, 1))
+        return repository.findAll()
                 .stream()
                 .map(mapper::toResponse)
-                .toList()
-                .getFirst();
+                .findFirst()
+                .orElse(null);
     }
 
     @Override

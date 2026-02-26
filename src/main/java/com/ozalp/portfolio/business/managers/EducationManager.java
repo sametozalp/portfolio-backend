@@ -48,7 +48,7 @@ public class EducationManager implements EducationService {
 
     @Override
     public List<EducationResponse> getEducations() {
-        return repository.findAllByDeletedAtIsNullAndShowableIsTrue()
+        return repository.findAll()
                 .stream()
                 .map(mapper::toResponse)
                 .toList();

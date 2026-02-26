@@ -10,7 +10,6 @@ import com.ozalp.portfolio.dataAccess.CopyrightRepository;
 import com.ozalp.portfolio.entities.Copyright;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,7 +21,7 @@ public class CopyrightManager implements CopyrightService {
 
     @Override
     public void add(CreateCopyrightRequest createCopyrightRequest) {
-        if (!repository.findAllByDeletedAtIsNullAndShowableIsTrue().isEmpty()) {
+        if (!repository.findAll().isEmpty()) {
             throw new DataAlreadyExist();
         }
         repository.save(mapper.toEntity(createCopyrightRequest));
@@ -51,11 +50,11 @@ public class CopyrightManager implements CopyrightService {
 
     @Override
     public CopyrightResponse getCopyright() {
-        return repository.findAllByDeletedAtIsNullAndShowableIsTrue(PageRequest.of(0, 1))
+        return repository.findAll()
                 .stream()
                 .map(mapper::toResponse)
-                .toList()
-                .getFirst();
+                .findFirst()
+                .orElse(null);
     }
 
     @Override

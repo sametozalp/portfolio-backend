@@ -11,7 +11,6 @@ import com.ozalp.portfolio.dataAccess.ContactRepository;
 import com.ozalp.portfolio.entities.Contact;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -26,7 +25,7 @@ public class ContactManager implements ContactService {
 
     @Override
     public void add(CreateContactRequest createContactRequest) {
-        if (!repository.findAllByDeletedAtIsNullAndShowableIsTrue().isEmpty()) {
+        if (!repository.findAll().isEmpty()) {
             throw new DataAlreadyExist();
         }
         repository.save(mapper.toEntity(createContactRequest));
@@ -55,11 +54,12 @@ public class ContactManager implements ContactService {
 
     @Override
     public ContactResponse getContact() {
-        return repository.findAllByDeletedAtIsNullAndShowableIsTrue(PageRequest.of(0, 1))
+        return repository.findAll()
                 .stream()
                 .map(mapper::toResponse)
-                .toList()
-                .getFirst();    }
+                .findFirst()
+                .orElse(null);
+    }
 
     @Override
     public void update(int id, UpdateContactRequest request) {

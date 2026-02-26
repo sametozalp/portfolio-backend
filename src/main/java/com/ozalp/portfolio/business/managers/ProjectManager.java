@@ -9,7 +9,6 @@ import com.ozalp.portfolio.dataAccess.ProjectRepository;
 import com.ozalp.portfolio.entities.Project;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,7 +48,7 @@ public class ProjectManager implements ProjectService {
 
     @Override
     public List<ProjectResponse> getProjects() {
-        return repository.findAllByDeletedAtIsNullAndShowableIsTrue(PageRequest.of(0, 1))
+        return repository.findAll()
                 .stream()
                 .map(mapper::toResponse)
                 .toList();

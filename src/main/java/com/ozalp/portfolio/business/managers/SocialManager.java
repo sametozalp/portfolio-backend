@@ -48,7 +48,7 @@ public class SocialManager implements SocialService {
 
     @Override
     public List<SocialResponse> getSocials() {
-        return repository.findAllByDeletedAtIsNullAndShowableIsTrue()
+        return repository.findAll()
                 .stream()
                 .map(mapper::toResponse)
                 .toList();

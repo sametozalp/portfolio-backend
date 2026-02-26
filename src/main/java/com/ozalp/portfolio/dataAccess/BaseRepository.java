@@ -12,9 +12,4 @@ import java.util.List;
 @NoRepositoryBean
 public interface BaseRepository<T extends BaseEntity, ID extends Integer>
         extends JpaRepository<T, ID> {
-
-    List<T> findAllByDeletedAtIsNullAndShowableIsTrue(PageRequest of);
-
-    List<T> findAllByDeletedAtIsNullAndShowableIsTrue();
-
 }

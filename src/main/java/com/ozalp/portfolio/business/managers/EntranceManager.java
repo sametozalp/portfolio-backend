@@ -22,7 +22,7 @@ public class EntranceManager implements EntranceService {
 
     @Override
     public void add(CreateEntranceRequest createEntranceRequest) {
-        if (!repository.findAllByDeletedAtIsNullAndShowableIsTrue().isEmpty()) {
+        if (!repository.findAll().isEmpty()) {
             throw new DataAlreadyExist();
         }
         repository.save(mapper.toEntity(createEntranceRequest));
@@ -51,11 +51,11 @@ public class EntranceManager implements EntranceService {
 
     @Override
     public EntranceResponse getEntrance() {
-        return repository.findAllByDeletedAtIsNullAndShowableIsTrue(PageRequest.of(0, 1))
+        return repository.findAll()
                 .stream()
                 .map(mapper::toResponse)
-                .toList()
-                .getFirst();
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
