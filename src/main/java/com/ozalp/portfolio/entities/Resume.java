@@ -18,9 +18,6 @@ import java.time.LocalDate;
 public class Resume extends BaseEntity {
 
     @Column
-    private String positionName;
-
-    @Column
     private String description;
 
     @Column

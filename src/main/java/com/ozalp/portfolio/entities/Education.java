@@ -17,6 +17,9 @@ import lombok.Setter;
 public class Education extends Resume {
 
     @Column
+    private String major;
+
+    @Column
     private String school;
 
 }

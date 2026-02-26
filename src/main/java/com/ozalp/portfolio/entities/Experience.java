@@ -17,6 +17,9 @@ import lombok.Setter;
 public class Experience extends Resume {
 
     @Column
+    private String positionName;
+
+    @Column
     private String company;
 
 }
