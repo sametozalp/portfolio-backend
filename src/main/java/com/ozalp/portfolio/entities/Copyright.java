@@ -19,6 +19,4 @@ public class Copyright extends BaseEntity {
     @Column
     private String description;
 
-    @Column
-    private int year;
 }

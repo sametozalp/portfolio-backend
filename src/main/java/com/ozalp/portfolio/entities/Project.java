@@ -32,6 +32,9 @@ public class Project extends BaseEntity {
     private List<String> features;
 
     @Column
+    private String coverImage;
+
+    @Column
     private List<String> images;
 
     @Column
