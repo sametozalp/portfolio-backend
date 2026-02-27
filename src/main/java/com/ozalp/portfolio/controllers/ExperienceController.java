@@ -29,8 +29,13 @@ public class ExperienceController {
     }
 
     @GetMapping
-    ResponseEntity<?> get() {
+    ResponseEntity<?> getAll() {
         return ResponseEntity.ok(experienceService.getExperience());
     }
 
+    @DeleteMapping("/{id}")
+    ResponseEntity<?> delete(@PathVariable(required = true) int id) {
+        experienceService.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }

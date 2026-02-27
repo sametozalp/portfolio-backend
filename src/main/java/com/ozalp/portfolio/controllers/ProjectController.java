@@ -32,9 +32,15 @@ public class ProjectController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-
     @GetMapping
-    ResponseEntity<?> get() {
+    ResponseEntity<?> getAll() {
         return ResponseEntity.ok(projectService.getProjects());
     }
+
+    @DeleteMapping("/{id}")
+    ResponseEntity<?> delete(@PathVariable(required = true) int id) {
+        projectService.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
 }

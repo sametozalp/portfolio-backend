@@ -29,7 +29,14 @@ public class EducationController {
     }
 
     @GetMapping
-    ResponseEntity<?> get() {
+    ResponseEntity<?> getAll() {
         return ResponseEntity.ok(educationService.getEducations());
     }
+
+    @DeleteMapping("/{id}")
+    ResponseEntity<?> delete(@PathVariable(required = true) int id) {
+        educationService.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }
+
