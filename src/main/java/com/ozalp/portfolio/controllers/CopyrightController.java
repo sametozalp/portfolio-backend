@@ -22,7 +22,7 @@ public class CopyrightController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     ResponseEntity<?> update(@PathVariable int id, @RequestBody @Valid UpdateCopyrightRequest request) {
         copyrightService.update(id, request);
         return ResponseEntity.status(HttpStatus.OK).build();

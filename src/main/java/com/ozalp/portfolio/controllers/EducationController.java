@@ -22,7 +22,7 @@ public class EducationController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     ResponseEntity<?> update(@PathVariable int id, @RequestBody @Valid UpdateEducationRequest request) {
         educationService.update(id, request);
         return ResponseEntity.status(HttpStatus.OK).build();

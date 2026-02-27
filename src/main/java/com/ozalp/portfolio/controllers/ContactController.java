@@ -29,7 +29,7 @@ public class ContactController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     ResponseEntity<?> update(@PathVariable int id, @RequestBody @Valid UpdateContactRequest request) {
         contactService.update(id, request);
         return ResponseEntity.status(HttpStatus.OK).build();

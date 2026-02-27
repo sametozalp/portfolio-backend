@@ -26,7 +26,7 @@ public class ProjectController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     ResponseEntity<?> update(@PathVariable int id, @RequestBody @Valid UpdateProjectRequest request) {
         projectService.update(id, request);
         return ResponseEntity.status(HttpStatus.OK).build();

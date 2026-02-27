@@ -22,7 +22,7 @@ public class AboutController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     ResponseEntity<?> update(@PathVariable int id, @RequestBody @Valid UpdateAboutRequest request) {
         aboutService.update(id, request);
         return ResponseEntity.status(HttpStatus.OK).build();
