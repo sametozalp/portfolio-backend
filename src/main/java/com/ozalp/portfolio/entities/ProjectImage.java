@@ -12,7 +12,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-@Inheritance(strategy = InheritanceType.JOINED)
 public class ProjectImage extends Image {
 
     @ManyToOne(fetch = FetchType.LAZY)
