@@ -14,6 +14,9 @@ import lombok.Setter;
 @Setter
 public class ProjectImage extends Image {
 
+    @MapsId
+    private int id;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
     private Project project;

@@ -18,8 +18,7 @@ import lombok.Setter;
 public class ProfileImage extends Image {
 
     @MapsId
-    @Column
-    private int imageId;
+    private int id;
 
     @Column
     private Boolean isProfileImage;
