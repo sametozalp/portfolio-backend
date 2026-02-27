@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface ProjectImageService {
 
+    void delete(int id);
+
     void add(ProjectImage projectImage);
 
     List<ProjectImageResponse> getProjectImages(int projectId);

@@ -2,11 +2,9 @@ package com.ozalp.portfolio.controllers;
 
 import com.ozalp.portfolio.business.services.ProjectImageService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/projectImages")
@@ -18,5 +16,11 @@ public class ProjectImageController {
     @GetMapping("/{projectId}")
     ResponseEntity<?> get(@PathVariable(required = true) int projectId) {
         return ResponseEntity.ok(projectImageService.getProjectImages(projectId));
+    }
+
+    @DeleteMapping("/{id}")
+    ResponseEntity<?> delete(@PathVariable(required = true) int id) {
+        projectImageService.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

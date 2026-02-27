@@ -16,6 +16,14 @@ public class ProjectImageManager implements ProjectImageService {
     private final ProjectImageRepository repository;
 
     @Override
+    public void delete(int id) {
+        var entity = repository.findById(id).orElseThrow();
+        entity.markAsDeleted();
+        repository.save(entity);
+
+    }
+
+    @Override
     public void add(ProjectImage projectImage) {
         repository.save(projectImage);
     }

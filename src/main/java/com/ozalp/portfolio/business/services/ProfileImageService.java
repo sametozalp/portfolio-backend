@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface ProfileImageService {
 
+    void delete(int id);
+
     void add(ProfileImage profileImage);
 
     List<ProfileImageResponse> getAll();

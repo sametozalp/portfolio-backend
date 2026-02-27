@@ -17,6 +17,14 @@ public class ProfileImageManager implements ProfileImageService {
     private final ProfileImageRepository repository;
 
     @Override
+    public void delete(int id) {
+        var entity = repository.findById(id).orElseThrow();
+        entity.markAsDeleted();
+        repository.save(entity);
+
+    }
+
+    @Override
     public void add(ProfileImage profileImage) {
         repository.save(profileImage);
     }
@@ -45,7 +53,7 @@ public class ProfileImageManager implements ProfileImageService {
                 .filter(r -> r.getIsProfileImage() == true)
                 .toList();
 
-        list.stream().forEach(r->r.setIsProfileImage(false));
+        list.stream().forEach(r -> r.setIsProfileImage(false));
 
         repository.saveAll(list);
 

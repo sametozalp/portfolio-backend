@@ -17,7 +17,7 @@ public class ProfileImageController {
 
     @GetMapping("/getAll")
     ResponseEntity<?> getAll() {
-       return ResponseEntity.ok(profileImageService.getAll());
+        return ResponseEntity.ok(profileImageService.getAll());
     }
 
     @GetMapping("/profileImage")
@@ -29,5 +29,11 @@ public class ProfileImageController {
     ResponseEntity<?> change(@RequestPart("image") MultipartFile image) {
         profileImageService.change(image);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @DeleteMapping("/{id}")
+    ResponseEntity<?> delete(@PathVariable(required = true) int id) {
+        profileImageService.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
