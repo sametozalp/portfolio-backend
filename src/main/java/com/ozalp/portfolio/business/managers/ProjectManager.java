@@ -10,6 +10,7 @@ import com.ozalp.portfolio.entities.Project;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -59,5 +60,10 @@ public class ProjectManager implements ProjectService {
         var entity = findById(id);
         mapper.updateEntity(request, entity);
         repository.save(entity);
+    }
+
+    @Override
+    public void add(CreateProjectRequest request, List<MultipartFile> images) {
+        repository.save(mapper.toEntity(request));
     }
 }
