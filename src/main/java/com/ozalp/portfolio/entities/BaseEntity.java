@@ -3,11 +3,25 @@ package com.ozalp.portfolio.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
 
 import java.time.Instant;
 
 @MappedSuperclass
 @Getter
+@FilterDef(
+        name = "showableFilter",
+        defaultCondition = "showable = true",
+        autoEnabled = true
+)
+@FilterDef(
+        name = "deletedFilter",
+        defaultCondition = "deleted_at IS NULL",
+        autoEnabled = true
+)
+@Filter(name = "showableFilter")
+@Filter(name = "deletedFilter")
 public abstract class BaseEntity {
 
     @Id
