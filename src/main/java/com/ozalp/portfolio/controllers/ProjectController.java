@@ -37,6 +37,11 @@ public class ProjectController {
         return ResponseEntity.ok(projectService.getProjects());
     }
 
+    @GetMapping("/{id}")
+    ResponseEntity<?> getById(@PathVariable int id) {
+        return ResponseEntity.ok(projectService.findById(id));
+    }
+
     @DeleteMapping("/{id}")
     ResponseEntity<?> delete(@PathVariable(required = true) int id) {
         projectService.delete(id);

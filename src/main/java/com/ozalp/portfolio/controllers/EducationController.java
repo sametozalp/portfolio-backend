@@ -33,6 +33,11 @@ public class EducationController {
         return ResponseEntity.ok(educationService.getEducations());
     }
 
+    @GetMapping("/{id}")
+    ResponseEntity<?> getById(@PathVariable int id) {
+        return ResponseEntity.ok(educationService.findById(id));
+    }
+
     @DeleteMapping("/{id}")
     ResponseEntity<?> delete(@PathVariable(required = true) int id) {
         educationService.delete(id);

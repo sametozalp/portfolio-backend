@@ -33,6 +33,11 @@ public class ExperienceController {
         return ResponseEntity.ok(experienceService.getExperience());
     }
 
+    @GetMapping("/{id}")
+    ResponseEntity<?> getById(@PathVariable int id) {
+        return ResponseEntity.ok(experienceService.findById(id));
+    }
+
     @DeleteMapping("/{id}")
     ResponseEntity<?> delete(@PathVariable(required = true) int id) {
         experienceService.delete(id);
