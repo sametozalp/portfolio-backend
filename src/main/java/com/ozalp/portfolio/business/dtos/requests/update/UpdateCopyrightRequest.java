@@ -9,5 +9,4 @@ public class UpdateCopyrightRequest {
 
     private String description;
 
-    private int year;
 }

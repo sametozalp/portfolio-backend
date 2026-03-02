@@ -8,6 +8,4 @@ import lombok.Setter;
 public class CreateCopyrightRequest {
 
     private String description;
-
-    private int year;
 }
