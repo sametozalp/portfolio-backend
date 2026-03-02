@@ -1,6 +1,5 @@
 package com.ozalp.portfolio.business.dtos.responses;
 
-import jakarta.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,13 +7,12 @@ import lombok.Setter;
 @Setter
 public class AuthResponse {
 
-    @Column
+    private int id;
+
     private String username;
 
-    @Column
     private String email;
 
-    @Column
     private String password;
 
 }

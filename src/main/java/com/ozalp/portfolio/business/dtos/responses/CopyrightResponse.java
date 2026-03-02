@@ -7,6 +7,8 @@ import lombok.Setter;
 @Setter
 public class CopyrightResponse {
 
+    private int id;
+
     private String description;
 
     private int year;

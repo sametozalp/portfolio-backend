@@ -9,6 +9,8 @@ import java.util.List;
 @Setter
 public class ProjectResponse {
 
+    private int id;
+
     private String title;
 
     private String summary;

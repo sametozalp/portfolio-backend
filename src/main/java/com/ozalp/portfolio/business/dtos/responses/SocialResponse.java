@@ -8,6 +8,8 @@ import lombok.Setter;
 @Setter
 public class SocialResponse {
 
+    private int id;
+
     private SocialMedia type;
 
     private String url;

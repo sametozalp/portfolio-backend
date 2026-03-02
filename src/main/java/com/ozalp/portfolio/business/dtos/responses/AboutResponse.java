@@ -9,6 +9,8 @@ import java.util.List;
 @Setter
 public class AboutResponse {
 
+    private int id;
+
     private String description;
 
     private String profileImageUrl;

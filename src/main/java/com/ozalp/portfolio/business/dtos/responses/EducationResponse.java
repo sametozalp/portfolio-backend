@@ -8,6 +8,8 @@ import java.time.LocalDate;
 @Setter
 public class EducationResponse {
 
+    private int id;
+
     private String major;
 
     private String description;

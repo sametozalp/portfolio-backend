@@ -8,6 +8,8 @@ import java.time.LocalDate;
 @Setter
 public class ExperienceResponse {
 
+    private int id;
+
     private String positionName;
 
     private String description;

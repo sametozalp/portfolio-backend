@@ -7,6 +7,8 @@ import lombok.Setter;
 @Setter
 public class EntranceResponse {
 
+    private int id;
+
     private String title;
 
     private String description;
