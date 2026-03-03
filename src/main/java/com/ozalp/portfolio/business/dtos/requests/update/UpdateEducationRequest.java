@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Setter
 public class UpdateEducationRequest {
 
-    private String positionName;
+    private String major;
 
     private String description;
 
