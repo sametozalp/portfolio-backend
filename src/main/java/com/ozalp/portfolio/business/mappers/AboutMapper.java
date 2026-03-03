@@ -5,11 +5,13 @@ import com.ozalp.portfolio.business.dtos.requests.update.UpdateAboutRequest;
 import com.ozalp.portfolio.business.dtos.responses.AboutResponse;
 import com.ozalp.portfolio.entities.About;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 @Mapper(componentModel = "spring")
 public interface AboutMapper extends BaseMapper<About, CreateAboutRequest, AboutResponse> {
 
+    @Mapping(target = "skills", ignore = true)
     void updateEntity(UpdateAboutRequest request, @MappingTarget About entity);
 
 }

@@ -8,8 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
 @Table(name = "abouts")
 @Getter
@@ -28,6 +26,6 @@ public class About extends BaseEntity {
     private String profileImageUrl;
 
     @Column
-    private List<String> skills;
+    private String skills;
 
 }

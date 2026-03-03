@@ -21,7 +21,7 @@ public class UpdateProjectRequest {
 
     private LocalDate projectDate;
 
-    private List<String> techStack;
+    private String techStack;
 
     private String liveDemoUrl;
 

@@ -3,8 +3,6 @@ package com.ozalp.portfolio.business.dtos.responses;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 public class AboutResponse {
@@ -15,7 +13,7 @@ public class AboutResponse {
 
     private String profileImageUrl;
 
-    private List<String> skills;
+    private String skills;
 
     private String title;
 

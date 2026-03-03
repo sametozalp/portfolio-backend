@@ -40,7 +40,7 @@ public class Project extends BaseEntity {
     private LocalDate projectDate;
 
     @Column
-    private List<String> techStack;
+    private String techStack;
 
     @Column
     private String liveDemoUrl;
