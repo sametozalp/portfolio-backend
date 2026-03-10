@@ -24,12 +24,12 @@ public class ProfileImageController {
     ResponseEntity<?> getProfileImage() {
         return ResponseEntity.ok(profileImageService.getProfileImage());
     }
-
     @PostMapping(value = "/add", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     ResponseEntity<?> add(@RequestPart("image") MultipartFile image) {
         profileImageService.add(image);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
 
     @DeleteMapping("/{id}")
     ResponseEntity<?> delete(@PathVariable(required = true) int id) {

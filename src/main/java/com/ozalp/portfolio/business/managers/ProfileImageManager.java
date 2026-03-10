@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -83,7 +84,8 @@ public class ProfileImageManager implements ProfileImageService {
 
     @Override
     public ProfileImageResponse getProfileImage() {
-        ProfileImage profileImage = repository.findAll().stream().findFirst().orElseThrow();
-        return new ProfileImageResponse(profileImage.getId(), profileImage.getUrl());
+        Optional<ProfileImage> profileImage = repository.findAll().stream().findFirst();
+        return profileImage.map(image -> new ProfileImageResponse(image.getId(), image.getUrl()))
+                .orElse(null);
     }
 }
