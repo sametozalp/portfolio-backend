@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProfileImageRepository extends JpaRepository<ProfileImage, Integer> {
-    ProfileImage findByIsProfileImageIsTrue();
+//    ProfileImage findByIsProfileImageIsTrue();
 }

@@ -13,8 +13,6 @@ public class ProfileImageResponse {
 
     private int id;
 
-    private Boolean isProfileImage;
-
     private String url;
 
 }

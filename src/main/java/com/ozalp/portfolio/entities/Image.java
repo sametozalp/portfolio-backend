@@ -15,7 +15,7 @@ import lombok.Setter;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Image extends BaseEntity {
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String url;
 
 }

@@ -25,9 +25,9 @@ public class ProfileImageController {
         return ResponseEntity.ok(profileImageService.getProfileImage());
     }
 
-    @PostMapping(value = "/change", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    ResponseEntity<?> change(@RequestPart("image") MultipartFile image) {
-        profileImageService.change(image);
+    @PostMapping(value = "/add", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    ResponseEntity<?> add(@RequestPart("image") MultipartFile image) {
+        profileImageService.add(image);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 

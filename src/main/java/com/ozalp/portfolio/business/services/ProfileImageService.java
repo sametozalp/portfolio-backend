@@ -16,5 +16,5 @@ public interface ProfileImageService {
 
     ProfileImageResponse getProfileImage();
 
-    void change(MultipartFile image);
+    void add(MultipartFile image);
 }
