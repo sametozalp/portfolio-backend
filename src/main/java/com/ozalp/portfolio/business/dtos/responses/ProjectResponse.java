@@ -9,6 +9,8 @@ import java.time.LocalDate;
 @Setter
 public class ProjectResponse {
 
+    private int id;
+
     private String title;
 
     private String summary;
