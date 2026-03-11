@@ -15,9 +15,7 @@ public class UpdateProjectRequest {
 
     private String description;
 
-    private List<String> features;
-
-//    private List<String> images;
+    private String features;
 
     private LocalDate projectDate;
 
@@ -26,8 +24,6 @@ public class UpdateProjectRequest {
     private String liveDemoUrl;
 
     private String sourceCodeUrl;
-
-    private String coverImage;
 
 
 }

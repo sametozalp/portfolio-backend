@@ -4,12 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.List;
+
 @Getter
 @Setter
 public class ProjectResponse {
-
-    private int id;
 
     private String title;
 
@@ -17,9 +15,7 @@ public class ProjectResponse {
 
     private String description;
 
-    private List<String> features;
-
-//    private List<String> images;
+    private String features;
 
     private LocalDate projectDate;
 
@@ -28,8 +24,5 @@ public class ProjectResponse {
     private String liveDemoUrl;
 
     private String sourceCodeUrl;
-
-    private String coverImage;
-
 
 }

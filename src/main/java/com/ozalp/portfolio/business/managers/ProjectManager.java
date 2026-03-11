@@ -4,12 +4,14 @@ import com.ozalp.portfolio.business.dtos.requests.create.CreateProjectRequest;
 import com.ozalp.portfolio.business.dtos.requests.update.UpdateProjectRequest;
 import com.ozalp.portfolio.business.dtos.responses.ProjectResponse;
 import com.ozalp.portfolio.business.mappers.ProjectMapper;
+import com.ozalp.portfolio.business.services.ProjectImageService;
 import com.ozalp.portfolio.business.services.ProjectService;
 import com.ozalp.portfolio.dataAccess.ProjectRepository;
 import com.ozalp.portfolio.entities.Project;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -20,6 +22,7 @@ public class ProjectManager implements ProjectService {
 
     private final ProjectRepository repository;
     private final ProjectMapper mapper;
+    private final ProjectImageService projectImageService;
 
     @Override
     public void add(CreateProjectRequest createProjectRequest) {
@@ -62,8 +65,10 @@ public class ProjectManager implements ProjectService {
         repository.save(entity);
     }
 
+    @Transactional
     @Override
     public void add(CreateProjectRequest request, List<MultipartFile> images) {
-        repository.save(mapper.toEntity(request));
+        Project saved = repository.save(mapper.toEntity(request));
+        projectImageService.add(saved, images);
     }
 }

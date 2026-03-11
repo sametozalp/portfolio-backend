@@ -28,12 +28,9 @@ public class Project extends BaseEntity {
     private String description;
 
     @Column
-    private List<String> features;
+    private String features;
 
-    @Column
-    private String coverImage;
-
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
     private List<ProjectImage> images = new ArrayList<>();
 
     @Column
@@ -47,5 +44,4 @@ public class Project extends BaseEntity {
 
     @Column
     private String sourceCodeUrl;
-
 }

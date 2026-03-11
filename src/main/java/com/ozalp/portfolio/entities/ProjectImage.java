@@ -21,4 +21,14 @@ public class ProjectImage extends Image {
     @JoinColumn(name = "project_id")
     private Project project;
 
+    @Column
+    private Boolean isCoverImage;
+
+    @Column
+    private int orderNumber;
+
+    public ProjectImage(Project project, String url) {
+        super(url);
+        this.project = project;
+    }
 }

@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.List;
+
 @Getter
 @Setter
 public class CreateProjectRequest {
@@ -15,9 +15,7 @@ public class CreateProjectRequest {
 
     private String description;
 
-    private List<String> features;
-
-//    private List<String> images;
+    private String features;
 
     private LocalDate projectDate;
 
@@ -26,8 +24,4 @@ public class CreateProjectRequest {
     private String liveDemoUrl;
 
     private String sourceCodeUrl;
-
-    private String coverImage;
-
-
 }
