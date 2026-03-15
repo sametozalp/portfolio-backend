@@ -29,4 +29,7 @@ public class ProjectResponse {
     private String sourceCodeUrl;
 
     private List<ProjectImageResponse> images;
+
+    private Boolean showable;
+
 }

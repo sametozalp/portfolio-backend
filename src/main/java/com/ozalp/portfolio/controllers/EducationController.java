@@ -43,5 +43,11 @@ public class EducationController {
         educationService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+    @PostMapping("/{id}/setShowableImage")
+    ResponseEntity<?> setShowableImage(@PathVariable(required = true) int id, @RequestBody Boolean value) {
+        educationService.setShowable(id, value);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }
 

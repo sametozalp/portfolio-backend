@@ -19,4 +19,7 @@ public class EducationResponse {
     private LocalDate startDate;
 
     private LocalDate endDate;
+
+    private Boolean showable;
+
 }

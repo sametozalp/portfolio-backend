@@ -20,5 +20,6 @@ public class ExperienceResponse {
 
     private LocalDate endDate;
 
+    private Boolean showable;
 
 }

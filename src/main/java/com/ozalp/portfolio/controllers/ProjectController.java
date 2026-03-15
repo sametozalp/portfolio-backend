@@ -48,4 +48,10 @@ public class ProjectController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
+    @PostMapping("/{id}/setShowableImage")
+    ResponseEntity<?> setShowableImage(@PathVariable(required = true) int id, @RequestBody Boolean value) {
+        projectService.setShowable(id, value);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
 }
