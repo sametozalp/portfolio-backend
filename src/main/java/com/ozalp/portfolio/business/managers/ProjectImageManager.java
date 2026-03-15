@@ -78,8 +78,8 @@ public class ProjectImageManager implements ProjectImageService {
     public void downOrderNumber(int id) {
         ProjectImage projectImage = findById(id);
         projectImage.setOrderNumber(projectImage.getOrderNumber() - 1);
-        if (projectImage.getOrderNumber() <= 0)
-            projectImage.setOrderNumber(0);
+        if (projectImage.getOrderNumber() <= 1)
+            projectImage.setOrderNumber(1);
         repository.save(projectImage);
     }
 

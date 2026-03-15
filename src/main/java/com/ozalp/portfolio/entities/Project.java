@@ -30,6 +30,7 @@ public class Project extends BaseEntity {
     @Column
     private String features;
 
+    @OrderBy(value = "orderNumber ASC")
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
     private List<ProjectImage> images = new ArrayList<>();
 
