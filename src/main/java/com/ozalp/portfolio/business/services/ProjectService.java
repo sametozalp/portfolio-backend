@@ -15,4 +15,6 @@ public interface ProjectService extends BaseService<CreateProjectRequest, Projec
     void update(int id, UpdateProjectRequest request);
 
     void add(CreateProjectRequest request, List<MultipartFile> images);
+
+    ProjectResponse getProject(int id);
 }

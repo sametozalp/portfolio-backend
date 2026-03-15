@@ -5,11 +5,15 @@ import com.ozalp.portfolio.business.dtos.requests.update.UpdateProjectRequest;
 import com.ozalp.portfolio.business.dtos.responses.ProjectResponse;
 import com.ozalp.portfolio.entities.Project;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 @Mapper(componentModel = "spring")
 public interface ProjectMapper extends BaseMapper<Project, CreateProjectRequest, ProjectResponse> {
 
     void updateEntity(UpdateProjectRequest request, @MappingTarget Project entity);
+
+    @Mapping(target = "images", source = "project.images")
+    ProjectResponse toResponse(Project project);
 
 }

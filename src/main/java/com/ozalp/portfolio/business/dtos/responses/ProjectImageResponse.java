@@ -14,4 +14,11 @@ public class ProjectImageResponse {
     private int id;
 
     private String url;
+
+    private Boolean isCoverImage;
+
+    public ProjectImageResponse(int id, String url) {
+        this.id = id;
+        this.url = url;
+    }
 }

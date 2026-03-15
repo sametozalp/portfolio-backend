@@ -22,7 +22,7 @@ public class ProjectImage extends Image {
     private Project project;
 
     @Column
-    private Boolean isCoverImage;
+    private Boolean isCoverImage = false;
 
     @Column
     private int orderNumber;

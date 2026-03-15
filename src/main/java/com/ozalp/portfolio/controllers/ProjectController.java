@@ -39,7 +39,7 @@ public class ProjectController {
 
     @GetMapping("/{id}")
     ResponseEntity<?> getById(@PathVariable int id) {
-        return ResponseEntity.ok(projectService.findById(id));
+        return ResponseEntity.ok(projectService.getProject(id));
     }
 
     @DeleteMapping("/{id}")

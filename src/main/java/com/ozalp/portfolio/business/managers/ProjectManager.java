@@ -71,4 +71,9 @@ public class ProjectManager implements ProjectService {
         Project saved = repository.save(mapper.toEntity(request));
         projectImageService.add(saved, images);
     }
+
+    @Override
+    public ProjectResponse getProject(int id) {
+        return mapper.toResponse(findById(id));
+    }
 }
