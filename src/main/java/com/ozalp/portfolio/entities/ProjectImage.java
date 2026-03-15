@@ -25,7 +25,7 @@ public class ProjectImage extends Image {
     private Boolean isCoverImage = false;
 
     @Column
-    private int orderNumber;
+    private int orderNumber = 1;
 
     public ProjectImage(Project project, String url) {
         super(url);

@@ -42,7 +42,7 @@ public class ProjectImageManager implements ProjectImageService {
         return repository.findAll()
                 .stream()
                 .filter(r -> r.getId() == projectId)
-                .map(r -> new ProjectImageResponse(r.getId(), r.getUrl()))
+                .map(r -> new ProjectImageResponse(r.getId(), r.getUrl(), r.getIsCoverImage(), r.getOrderNumber()))
                 .toList();
     }
 

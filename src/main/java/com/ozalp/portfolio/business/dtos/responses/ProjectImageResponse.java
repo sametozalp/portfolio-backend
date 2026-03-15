@@ -17,8 +17,5 @@ public class ProjectImageResponse {
 
     private Boolean isCoverImage;
 
-    public ProjectImageResponse(int id, String url) {
-        this.id = id;
-        this.url = url;
-    }
+    private int orderNumber;
 }
