@@ -7,11 +7,11 @@ import com.ozalp.portfolio.entities.Social;
 
 import java.util.List;
 
-public interface SocialService extends BaseService<CreateSocialRequest, Social> {
+public interface SocialService extends BaseService<Social> {
 
     List<SocialResponse> getSocials();
 
     void update(int id, UpdateSocialRequest request);
 
-
+    void add(CreateSocialRequest createSocialRequest);
 }

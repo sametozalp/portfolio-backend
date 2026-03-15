@@ -6,10 +6,12 @@ import com.ozalp.portfolio.business.dtos.requests.update.UpdateContactRequest;
 import com.ozalp.portfolio.business.dtos.responses.ContactResponse;
 import com.ozalp.portfolio.entities.Contact;
 
-public interface ContactService extends BaseService<CreateContactRequest, Contact> {
+public interface ContactService extends BaseService<Contact> {
 
     ContactResponse getContact();
     void update(int id, UpdateContactRequest request);
 
     void send(MailContactRequest request);
+
+    void add(CreateContactRequest createContactRequest);
 }

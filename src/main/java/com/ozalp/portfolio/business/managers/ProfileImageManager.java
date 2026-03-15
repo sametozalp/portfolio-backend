@@ -34,6 +34,18 @@ public class ProfileImageManager implements ProfileImageService {
     }
 
     @Override
+    public void setShowable(int id, Boolean value) {
+        ProfileImage profileImage = findById(id);
+        profileImage.setShowable(value);
+        repository.save(profileImage);
+    }
+
+    @Override
+    public ProfileImage findById(int id) {
+        return repository.findById(id).orElseThrow();
+    }
+
+    @Override
     public void add(ProfileImage profileImage) {
 
         List<ProfileImage> all = repository.findAll();

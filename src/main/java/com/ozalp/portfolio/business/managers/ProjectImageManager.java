@@ -33,6 +33,18 @@ public class ProjectImageManager implements ProjectImageService {
     }
 
     @Override
+    public void setShowable(int id, Boolean value) {
+        ProjectImage projectImage = findById(id);
+        projectImage.setShowable(value);
+        repository.save(projectImage);
+    }
+
+    @Override
+    public ProjectImage findById(int id) {
+        return repository.findById(id).orElseThrow();
+    }
+
+    @Override
     public void add(ProjectImage projectImage) {
         repository.save(projectImage);
     }
@@ -57,14 +69,14 @@ public class ProjectImageManager implements ProjectImageService {
 
     @Override
     public void upOrderNumber(int id) {
-        ProjectImage projectImage = repository.findById(id).orElseThrow();
+        ProjectImage projectImage = findById(id);
         projectImage.setOrderNumber(projectImage.getOrderNumber() + 1);
         repository.save(projectImage);
     }
 
     @Override
     public void downOrderNumber(int id) {
-        ProjectImage projectImage = repository.findById(id).orElseThrow();
+        ProjectImage projectImage = findById(id);
         projectImage.setOrderNumber(projectImage.getOrderNumber() - 1);
         if (projectImage.getOrderNumber() <= 0)
             projectImage.setOrderNumber(0);
@@ -73,7 +85,7 @@ public class ProjectImageManager implements ProjectImageService {
 
     @Override
     public void setCoverImage(int id) {
-        ProjectImage projectImage = repository.findById(id).orElseThrow();
+        ProjectImage projectImage = findById(id);
         Project project = projectImage.getProject();
         project.getImages()
                 .forEach(i -> {

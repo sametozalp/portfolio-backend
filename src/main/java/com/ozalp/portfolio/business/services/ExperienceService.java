@@ -7,11 +7,12 @@ import com.ozalp.portfolio.entities.Experience;
 
 import java.util.List;
 
-public interface ExperienceService extends BaseService<CreateExperienceRequest, Experience> {
+public interface ExperienceService extends BaseService<Experience> {
 
     List<ExperienceResponse> getExperience();
 
     void update(int id, UpdateExperienceRequest request);
 
+    void add(CreateExperienceRequest createExperienceRequest);
 
 }

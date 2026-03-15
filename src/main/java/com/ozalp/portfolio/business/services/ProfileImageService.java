@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-public interface ProfileImageService {
+public interface ProfileImageService extends BaseService<ProfileImage> {
 
     void delete(int id);
 

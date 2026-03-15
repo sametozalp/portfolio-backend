@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-public interface ProjectService extends BaseService<CreateProjectRequest, Project> {
+public interface ProjectService extends BaseService<Project> {
 
     List<ProjectResponse> getProjects();
 
@@ -17,4 +17,6 @@ public interface ProjectService extends BaseService<CreateProjectRequest, Projec
     void add(CreateProjectRequest request, List<MultipartFile> images);
 
     ProjectResponse getProject(int id);
+
+    void add(CreateProjectRequest createProjectRequest);
 }

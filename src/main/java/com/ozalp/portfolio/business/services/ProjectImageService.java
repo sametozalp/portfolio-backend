@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-public interface ProjectImageService {
+public interface ProjectImageService extends BaseService<ProjectImage> {
 
     void delete(int id);
 
