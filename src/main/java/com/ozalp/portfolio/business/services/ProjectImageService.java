@@ -20,4 +20,6 @@ public interface ProjectImageService {
     void upOrderNumber(int id);
 
     void downOrderNumber(int id);
+
+    void setCoverImage(int id);
 }

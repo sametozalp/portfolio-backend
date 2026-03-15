@@ -71,6 +71,21 @@ public class ProjectImageManager implements ProjectImageService {
         repository.save(projectImage);
     }
 
+    @Override
+    public void setCoverImage(int id) {
+        ProjectImage projectImage = repository.findById(id).orElseThrow();
+        Project project = projectImage.getProject();
+        project.getImages()
+                .forEach(i -> {
+                    i.setIsCoverImage(false);
+                    repository.save(i);
+                });
+
+        projectImage.setIsCoverImage(true);
+        repository.save(projectImage);
+
+    }
+
     @SneakyThrows
     private void uploadToBucketAndSave(Project saved, Bucket bucket, MultipartFile file) {
         String fileName = saved.getTitle() + "-" + UUID.randomUUID();

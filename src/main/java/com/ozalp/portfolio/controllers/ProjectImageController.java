@@ -35,4 +35,10 @@ public class ProjectImageController {
         projectImageService.downOrderNumber(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+    @PostMapping("/{id}/setCoverImage")
+    ResponseEntity<?> setCoverImage(@PathVariable(required = true) int id) {
+        projectImageService.setCoverImage(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }

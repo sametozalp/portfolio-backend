@@ -30,7 +30,6 @@ public class ProfileImageController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-
     @DeleteMapping("/{id}")
     ResponseEntity<?> delete(@PathVariable(required = true) int id) {
         profileImageService.delete(id);
