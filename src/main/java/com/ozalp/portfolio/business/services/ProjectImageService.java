@@ -22,4 +22,5 @@ public interface ProjectImageService extends BaseService<ProjectImage> {
     void downOrderNumber(int id);
 
     void setCoverImage(int id);
+
 }

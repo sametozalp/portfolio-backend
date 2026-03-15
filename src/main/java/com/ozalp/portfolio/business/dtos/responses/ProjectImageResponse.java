@@ -18,4 +18,7 @@ public class ProjectImageResponse {
     private Boolean isCoverImage;
 
     private int orderNumber;
+
+    private Boolean showable;
+
 }
