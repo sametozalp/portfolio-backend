@@ -55,6 +55,22 @@ public class ProjectImageManager implements ProjectImageService {
         });
     }
 
+    @Override
+    public void upOrderNumber(int id) {
+        ProjectImage projectImage = repository.findById(id).orElseThrow();
+        projectImage.setOrderNumber(projectImage.getOrderNumber() + 1);
+        repository.save(projectImage);
+    }
+
+    @Override
+    public void downOrderNumber(int id) {
+        ProjectImage projectImage = repository.findById(id).orElseThrow();
+        projectImage.setOrderNumber(projectImage.getOrderNumber() - 1);
+        if (projectImage.getOrderNumber() <= 0)
+            projectImage.setOrderNumber(0);
+        repository.save(projectImage);
+    }
+
     @SneakyThrows
     private void uploadToBucketAndSave(Project saved, Bucket bucket, MultipartFile file) {
         String fileName = saved.getTitle() + "-" + UUID.randomUUID();

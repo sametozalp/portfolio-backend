@@ -23,4 +23,16 @@ public class ProjectImageController {
         projectImageService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+    @PostMapping("/{id}/upOrderNumber")
+    ResponseEntity<?> upOrderNumber(@PathVariable(required = true) int id) {
+        projectImageService.upOrderNumber(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @PostMapping("/{id}/downOrderNumber")
+    ResponseEntity<?> downOrderNumber(@PathVariable(required = true) int id) {
+        projectImageService.downOrderNumber(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }

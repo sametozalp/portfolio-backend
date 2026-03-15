@@ -16,4 +16,8 @@ public interface ProjectImageService {
     List<ProjectImageResponse> getProjectImages(int projectId);
 
     void add(Project saved, List<MultipartFile> images);
+
+    void upOrderNumber(int id);
+
+    void downOrderNumber(int id);
 }
