@@ -19,4 +19,6 @@ public interface ProjectService extends BaseService<Project> {
     ProjectResponse getProject(int id);
 
     void add(CreateProjectRequest createProjectRequest);
+
+    void addProjectImage(int id, MultipartFile image);
 }

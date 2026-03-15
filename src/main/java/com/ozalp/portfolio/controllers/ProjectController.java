@@ -54,4 +54,10 @@ public class ProjectController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
+    @PostMapping(value = "/{id}/projectImage", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    ResponseEntity<?> addProjectImage(@PathVariable int id, @RequestPart("image") MultipartFile image) {
+        projectService.addProjectImage(id, image);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
 }

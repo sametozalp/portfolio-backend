@@ -30,6 +30,12 @@ public class ProjectManager implements ProjectService {
     }
 
     @Override
+    public void addProjectImage(int id, MultipartFile image) {
+        Project project = findById(id);
+        projectImageService.add(project, List.of(image));
+    }
+
+    @Override
     public void delete(int id) {
         var entity = findById(id);
         entity.markAsDeleted();
