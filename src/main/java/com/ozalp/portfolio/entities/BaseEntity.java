@@ -15,13 +15,13 @@ import java.time.Instant;
 //        defaultCondition = "showable = true",
 //        autoEnabled = true
 //)
-//@FilterDef(
-//        name = "deletedFilter",
-//        defaultCondition = "deleted_at IS NULL",
-//        autoEnabled = true
-//)
+@FilterDef(
+        name = "deletedFilter",
+        defaultCondition = "deleted_at IS NULL",
+        autoEnabled = true
+)
 //@Filter(name = "showableFilter")
-//@Filter(name = "deletedFilter")
+@Filter(name = "deletedFilter")
 public abstract class BaseEntity {
 
     @Id
