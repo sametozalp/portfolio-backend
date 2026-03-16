@@ -14,4 +14,8 @@ public interface SocialService extends BaseService<Social> {
     void update(int id, UpdateSocialRequest request);
 
     void add(CreateSocialRequest createSocialRequest);
+
+    void upOrderNumber(int id);
+
+    void downOrderNumber(int id);
 }

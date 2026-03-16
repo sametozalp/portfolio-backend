@@ -13,4 +13,8 @@ public class SocialResponse {
     private SocialMedia type;
 
     private String url;
+
+    private int orderNumber;
+
+    private Boolean showable;
 }

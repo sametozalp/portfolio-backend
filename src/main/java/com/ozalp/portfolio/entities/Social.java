@@ -21,4 +21,7 @@ public class Social extends BaseEntity {
 
     @Column
     private String url;
+
+    @Column
+    private int orderNumber = 1;
 }

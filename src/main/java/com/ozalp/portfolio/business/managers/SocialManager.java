@@ -26,6 +26,22 @@ public class SocialManager implements SocialService {
     }
 
     @Override
+    public void upOrderNumber(int id) {
+        Social social = findById(id);
+        social.setOrderNumber(social.getOrderNumber() + 1);
+        repository.save(social);
+    }
+
+    @Override
+    public void downOrderNumber(int id) {
+        Social social = findById(id);
+        social.setOrderNumber(social.getOrderNumber() - 1);
+        if (social.getOrderNumber() <= 1)
+            social.setOrderNumber(1);
+        repository.save(social);
+    }
+
+    @Override
     public void delete(int id) {
         var entity = findById(id);
         entity.markAsDeleted();

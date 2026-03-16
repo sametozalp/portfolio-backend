@@ -28,9 +28,26 @@ public class SocialController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-
     @GetMapping
     ResponseEntity<?> get() {
         return ResponseEntity.ok(socialService.getSocials());
+    }
+
+    @PostMapping("/{id}/setShowableImage")
+    ResponseEntity<?> setShowableImage(@PathVariable(required = true) int id, @RequestBody Boolean value) {
+        socialService.setShowable(id, value);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @PostMapping("/{id}/upOrderNumber")
+    ResponseEntity<?> upOrderNumber(@PathVariable(required = true) int id) {
+        socialService.upOrderNumber(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @PostMapping("/{id}/downOrderNumber")
+    ResponseEntity<?> downOrderNumber(@PathVariable(required = true) int id) {
+        socialService.downOrderNumber(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
