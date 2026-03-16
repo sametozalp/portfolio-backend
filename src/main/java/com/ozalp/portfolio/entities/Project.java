@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Filter;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class Project extends BaseEntity {
     private String features;
 
     @OrderBy(value = "orderNumber ASC")
+    @Filter(name = "deletedFilter", condition = "id IN (SELECT img.id FROM images img WHERE img.deleted_at IS NULL)")
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
     private List<ProjectImage> images = new ArrayList<>();
 
