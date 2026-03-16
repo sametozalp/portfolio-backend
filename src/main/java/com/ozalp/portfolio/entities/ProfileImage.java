@@ -1,7 +1,6 @@
 package com.ozalp.portfolio.entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,9 +14,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ProfileImage extends Image {
-
-    @MapsId
-    private int id;
 
     public ProfileImage(String url) {
         super(url);
