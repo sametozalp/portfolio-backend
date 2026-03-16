@@ -3,9 +3,11 @@ package com.ozalp.portfolio.business.managers;
 import com.ozalp.portfolio.business.dtos.requests.create.CreateAboutRequest;
 import com.ozalp.portfolio.business.dtos.requests.update.UpdateAboutRequest;
 import com.ozalp.portfolio.business.dtos.responses.AboutResponse;
+import com.ozalp.portfolio.business.dtos.responses.ProfileImageResponse;
 import com.ozalp.portfolio.business.exeptions.errors.DataAlreadyExist;
 import com.ozalp.portfolio.business.mappers.AboutMapper;
 import com.ozalp.portfolio.business.services.AboutService;
+import com.ozalp.portfolio.business.services.ProfileImageService;
 import com.ozalp.portfolio.dataAccess.AboutRepository;
 import com.ozalp.portfolio.entities.About;
 import jakarta.persistence.EntityNotFoundException;
@@ -18,6 +20,7 @@ public class AboutManager implements AboutService {
 
     private final AboutRepository repository;
     private final AboutMapper mapper;
+    private final ProfileImageService profileImageService;
 
     @Override
     public void add(CreateAboutRequest createAboutRequest) {
@@ -50,9 +53,13 @@ public class AboutManager implements AboutService {
 
     @Override
     public AboutResponse getAbout() {
+        ProfileImageResponse profileImage = profileImageService.getProfileImage();
         return repository.findAll()
                 .stream()
-                .map(mapper::toResponse)
+                .map(about -> {
+                    about.setProfileImageUrl(profileImage.getUrl());
+                    return mapper.toResponse(about);
+                })
                 .findFirst()
                 .orElse(null);
     }
