@@ -1,6 +1,6 @@
 package com.ozalp.portfolio.entities;
 
-import com.ozalp.portfolio.business.enums.SocialMedia;
+import com.ozalp.portfolio.business.enums.Platform;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +17,7 @@ public class Social extends BaseEntity {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private SocialMedia type;
+    private Platform platform;
 
     @Column
     private String url;

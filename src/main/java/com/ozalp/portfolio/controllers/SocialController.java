@@ -28,13 +28,18 @@ public class SocialController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @GetMapping
-    ResponseEntity<?> get() {
+    @GetMapping("/all")
+    ResponseEntity<?> getAll() {
         return ResponseEntity.ok(socialService.getSocials());
     }
 
-    @PostMapping("/{id}/setShowableImage")
-    ResponseEntity<?> setShowableImage(@PathVariable(required = true) int id, @RequestBody Boolean value) {
+    @GetMapping("/{id}")
+    ResponseEntity<?> getSocial(@PathVariable int id) {
+        return ResponseEntity.ok(socialService.getSocial(id));
+    }
+
+    @PostMapping("/{id}/setShowable")
+    ResponseEntity<?> setShowable(@PathVariable(required = true) int id, @RequestBody Boolean value) {
         socialService.setShowable(id, value);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

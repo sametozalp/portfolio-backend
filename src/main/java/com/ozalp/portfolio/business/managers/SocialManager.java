@@ -11,6 +11,7 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -42,6 +43,11 @@ public class SocialManager implements SocialService {
     }
 
     @Override
+    public SocialResponse getSocial(int id) {
+        return mapper.toResponse(findById(id));
+    }
+
+    @Override
     public void delete(int id) {
         var entity = findById(id);
         entity.markAsDeleted();
@@ -66,6 +72,7 @@ public class SocialManager implements SocialService {
     public List<SocialResponse> getSocials() {
         return repository.findAll()
                 .stream()
+                .sorted(Comparator.comparing(Social::getOrderNumber))
                 .map(mapper::toResponse)
                 .toList();
     }

@@ -1,6 +1,6 @@
 package com.ozalp.portfolio.business.dtos.requests.create;
 
-import com.ozalp.portfolio.business.enums.SocialMedia;
+import com.ozalp.portfolio.business.enums.Platform;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class CreateSocialRequest {
 
-    private SocialMedia socialMedia;
+    private Platform platform;
 
     private String url;
 }

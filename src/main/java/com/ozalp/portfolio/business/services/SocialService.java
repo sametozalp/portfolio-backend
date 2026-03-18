@@ -18,4 +18,6 @@ public interface SocialService extends BaseService<Social> {
     void upOrderNumber(int id);
 
     void downOrderNumber(int id);
+
+    SocialResponse getSocial(int id);
 }

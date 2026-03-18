@@ -1,6 +1,6 @@
 package com.ozalp.portfolio.business.dtos.responses;
 
-import com.ozalp.portfolio.business.enums.SocialMedia;
+import com.ozalp.portfolio.business.enums.Platform;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +10,7 @@ public class SocialResponse {
 
     private int id;
 
-    private SocialMedia type;
+    private Platform platform;
 
     private String url;
 
