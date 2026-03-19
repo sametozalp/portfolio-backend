@@ -1,6 +1,6 @@
 package com.ozalp.portfolio.security;
 
-import com.ozalp.portfolio.entities.User;
+import com.ozalp.portfolio.entities.Auth;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -14,10 +14,10 @@ import java.util.Date;
 @Service
 public class JwtService {
 
-    @Value("jwt-secret-key")
+    @Value("${jwt-secret-key}")
     private String jwtSecretKey;
 
-    public String generateAccessToken(User user) {
+    public String generateAccessToken(Auth user) {
         return Jwts.builder()
                 .subject(user.getUsername())
                 .claim("username", user.getUsername())

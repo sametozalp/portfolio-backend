@@ -1,9 +1,7 @@
 package com.ozalp.portfolio.entities;
 
 import com.ozalp.portfolio.business.enums.Role;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +24,7 @@ public class Auth extends BaseEntity {
     @Column
     private String password;
 
+    @Enumerated(EnumType.STRING)
     @Column
     private Role role;
 

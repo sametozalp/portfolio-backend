@@ -1,23 +1,49 @@
 package com.ozalp.portfolio.business.managers;
 
+import com.ozalp.portfolio.business.dtos.requests.LoginRequest;
 import com.ozalp.portfolio.business.dtos.requests.create.CreateAuthRequest;
+import com.ozalp.portfolio.business.enums.Role;
 import com.ozalp.portfolio.business.mappers.AuthMapper;
 import com.ozalp.portfolio.business.services.AuthService;
 import com.ozalp.portfolio.dataAccess.AuthRepository;
 import com.ozalp.portfolio.entities.Auth;
+import com.ozalp.portfolio.security.JwtService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class AuthManager implements AuthService {
+
     private final AuthRepository repository;
     private final AuthMapper mapper;
+    private final JwtService jwtService;
 
     @Override
     public void add(CreateAuthRequest createAuthRequest) {
         repository.save(mapper.toEntity(createAuthRequest));
+    }
+
+    @Override
+    public String login(LoginRequest request) {
+        Auth given = repository.findByUsername(request.getUsername()).orElseThrow();
+
+        if (!given.getPassword().equals(request.getPassword())) {
+            throw new RuntimeException("Don't matches user info");
+        }
+
+        return jwtService.generateAccessToken(given);
+    }
+
+    @Override
+    public void createRootAdmin() {
+        Optional<Auth> username = repository.findByUsername("sametozalp");
+        if (!username.isPresent()) {
+            repository.save(new Auth("sametozalp", "sametozalpbusiness@gmail.com", "123456", Role.ADMIN));
+        }
     }
 
     @Override

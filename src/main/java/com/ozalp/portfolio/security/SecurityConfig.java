@@ -20,6 +20,7 @@ public class SecurityConfig {
         httpSecurity.authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/contact/send").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
                         .anyRequest().authenticated()
                 ).csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->
