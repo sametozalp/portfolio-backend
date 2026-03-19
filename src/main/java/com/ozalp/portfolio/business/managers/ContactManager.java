@@ -11,6 +11,7 @@ import com.ozalp.portfolio.dataAccess.ContactRepository;
 import com.ozalp.portfolio.entities.Contact;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,12 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class ContactManager implements ContactService {
+
+    @Value("${GMAIL_SENT_TO}")
+    private String mailSentTo;
+
+    @Value("${GMAIL_EMAIL}")
+    private String mailFrom;
 
     private final ContactRepository repository;
     private final ContactMapper mapper;
@@ -71,10 +78,10 @@ public class ContactManager implements ContactService {
     @Override
     public void send(MailContactRequest request) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("mail-adresiniz@gmail.com");
-        message.setTo("sametozalp0056@gmail.com");
-        message.setSubject(request.getName() + request.getEmail());
-        message.setText(request.getMessage());
+        message.setFrom(mailFrom);
+        message.setTo(mailSentTo);
+        message.setSubject("Portfolyo Mesajı -> Kimden: " + request.getName().trim());
+        message.setText(request.getMessage().trim() + "\n\n" + "Kişi mail: " + request.getEmail().trim() + "\nPortfolyo sitesinden...");
         mailSender.send(message);
     }
 }
