@@ -31,7 +31,7 @@ public class JwtFilter extends OncePerRequestFilter {
             String role = jwtService.extractRole(token);
             List<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(role));
 
-            if (jwtService.isTokenExpired(token)) {
+            if (!jwtService.isTokenExpired(token)) {
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(username, null, authorities);
                 usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);

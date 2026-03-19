@@ -48,7 +48,7 @@ public class AuthManager implements AuthService {
 
     @Override
     public void validateToken(String token) {
-        if (!jwtService.isTokenExpired(token)) {
+        if (jwtService.isTokenExpired(token)) {
             throw new RuntimeException("Invalid token");
         }
     }
