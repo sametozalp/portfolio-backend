@@ -12,8 +12,7 @@ import java.time.Instant;
 @Getter
 @FilterDef(
         name = "showableFilter",
-        defaultCondition = "showable = true",
-        autoEnabled = true
+        defaultCondition = "showable = true"
 )
 @FilterDef(
         name = "deletedFilter",
@@ -21,6 +20,7 @@ import java.time.Instant;
         autoEnabled = true
 )
 @Filter(name = "deletedFilter")
+@Filter(name = "showableFilter")
 public abstract class BaseEntity {
 
     @Id
