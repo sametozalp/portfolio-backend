@@ -12,4 +12,6 @@ public interface AuthService extends BaseService<Auth> {
     String login(@Valid LoginRequest request);
 
     void createRootAdmin();
+
+    void validateToken(String token);
 }

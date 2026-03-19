@@ -29,4 +29,10 @@ public class AuthController {
     ResponseEntity<?> login(@RequestBody @Valid LoginRequest request) {
         return ResponseEntity.ok(authService.login(request));
     }
+
+    @PostMapping("/validateToken")
+    ResponseEntity<?> validateToken(String token) {
+        authService.validateToken(token);
+        return ResponseEntity.ok(true);
+    }
 }
