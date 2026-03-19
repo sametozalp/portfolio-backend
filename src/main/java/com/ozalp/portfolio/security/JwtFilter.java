@@ -1,5 +1,6 @@
 package com.ozalp.portfolio.security;
 
+import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,14 +28,19 @@ public class JwtFilter extends OncePerRequestFilter {
 
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             String token = authorizationHeader.substring(7);
-            String username = jwtService.extractUsername(token);
-            String role = jwtService.extractRole(token);
-            List<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(role));
-
-            if (!jwtService.isTokenExpired(token)) {
+            try {
+                String username = jwtService.extractUsername(token);
+                String role = jwtService.extractRole(token);
+                List<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(role));
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(username, null, authorities);
                 usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+            } catch (ExpiredJwtException e) { // getClaims fonksiyonum expiredi kendi kontrol ediyor
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                response.getWriter().write("Token expired");
+                return;
+            } catch (RuntimeException e) {
+                throw new RuntimeException(e);
             }
         }
 
