@@ -1,11 +1,13 @@
 package com.ozalp.portfolio.security;
 
 import io.jsonwebtoken.ExpiredJwtException;
+import jakarta.persistence.EntityManager;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.Session;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,6 +23,7 @@ import java.util.List;
 public class JwtFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
+    private final EntityManager entityManager;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -42,6 +45,8 @@ public class JwtFilter extends OncePerRequestFilter {
             } catch (RuntimeException e) {
                 throw new RuntimeException(e);
             }
+        } else {
+            entityManager.unwrap(Session.class).enableFilter("showableFilter");
         }
 
         filterChain.doFilter(request, response);

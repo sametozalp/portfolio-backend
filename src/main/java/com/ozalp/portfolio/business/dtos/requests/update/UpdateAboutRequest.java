@@ -9,8 +9,6 @@ public class UpdateAboutRequest {
 
     private String description;
 
-    private String profileImageUrl;
-
     private String skills;
 
     private String title;

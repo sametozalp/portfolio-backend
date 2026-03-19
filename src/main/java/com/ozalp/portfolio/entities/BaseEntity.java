@@ -10,17 +10,16 @@ import java.time.Instant;
 
 @MappedSuperclass
 @Getter
-//@FilterDef(
-//        name = "showableFilter",
-//        defaultCondition = "showable = true",
-//        autoEnabled = true
-//)
+@FilterDef(
+        name = "showableFilter",
+        defaultCondition = "showable = true",
+        autoEnabled = true
+)
 @FilterDef(
         name = "deletedFilter",
         defaultCondition = "deleted_at IS NULL",
         autoEnabled = true
 )
-//@Filter(name = "showableFilter")
 @Filter(name = "deletedFilter")
 public abstract class BaseEntity {
 
