@@ -19,9 +19,6 @@ public class FirebaseConfig {
     @PostConstruct
     public void initialize() throws IOException {
 
-        if (firebaseConfigUrl == null)
-            firebaseConfigUrl = "src/main/resources/firebase-service-account.json";
-
         FileInputStream serviceAccount =
                 new FileInputStream(firebaseConfigUrl);
 
