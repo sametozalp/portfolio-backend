@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @Setter
 public class Resume extends BaseEntity {
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @Column

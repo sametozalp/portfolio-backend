@@ -19,7 +19,7 @@ public class Social extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Platform platform;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String url;
 
     @Column

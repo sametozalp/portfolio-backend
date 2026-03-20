@@ -25,7 +25,7 @@ public class About extends BaseEntity {
     @Column
     private String profileImageUrl;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String skills;
 
 }

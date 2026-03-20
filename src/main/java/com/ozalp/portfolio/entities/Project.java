@@ -25,10 +25,10 @@ public class Project extends BaseEntity {
     @Column
     private String summary;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String features;
 
     @OrderBy(value = "orderNumber ASC")
@@ -39,7 +39,7 @@ public class Project extends BaseEntity {
     @Column
     private LocalDate projectDate;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String techStack;
 
     @Column
